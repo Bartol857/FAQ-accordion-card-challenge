@@ -1,0 +1,112 @@
+@use './colors' as *;
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	min-height: 100vh;
+	font-size: 0.75rem;
+	font-family: 'Kumbh Sans', sans-serif;
+	color: $verydarkdesaturatedblue;
+	background: linear-gradient(0deg, $softblue 0%, $softviolet 100%);
+	background-attachment: fixed;
+}
+
+main {
+	margin: 0 auto;
+	max-width: 1200px;
+}
+
+.faq {
+	margin: 10rem 1.5rem 0;
+	background-color: $white;
+	border-radius: 25px;
+
+	&__img {
+		position: relative;
+		margin: 0 auto;
+		top: -110px;
+		width: 250px;
+		height: 210px;
+		background: url('../images/bg-pattern-mobile.svg') no-repeat;
+		background-position-y: 100%;
+		background-size: contain;
+		z-index: 999;
+	}
+
+	&__img-box{
+		display: none;
+	}
+
+	&__boxes {
+		margin: 0 auto;
+		padding: 0 1rem;
+		padding-bottom: 3rem;
+		width: 90%;
+	}
+
+	&__title {
+		font-size: 1rem;
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+	&__box {
+		position: relative;
+		padding: 1rem 0;
+		border-bottom: 1px solid $lightgrayishblue;
+	}
+
+	&__question {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		font-size: .875rem;
+		font-weight: 400;
+		cursor: pointer;
+
+		&::after {
+			content: url('../images/icon-arrow-down.svg');
+		}
+
+		&:hover {
+			color: $softred;
+		}
+	}
+
+	&__answer {
+		height: 0;
+		overflow: hidden;
+		transition: .5s;
+
+		p {
+			margin: 1rem 0;
+		}
+	}
+}
+
+.active .faq__question {
+	font-weight: bold;
+}
+
+.active .faq__question::after {
+	transform: rotate(180deg);
+}
+.active .faq__answer {
+	height: 60px;
+}
+
+.attribution {
+	color: $white;
+	font-size: 11px;
+	text-align: center;
+}
+.attribution a {
+	color: $softred;
+}
+
+@import './desktop';
